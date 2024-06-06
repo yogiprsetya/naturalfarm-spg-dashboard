@@ -2,11 +2,8 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   pages: true,
-  css: ['~/main.css'],
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
-  },
+  modules: ['@nuxtjs/tailwindcss'],
+  router: {
+    options: {linkExactActiveClass: 'active',}
+  }
 })
