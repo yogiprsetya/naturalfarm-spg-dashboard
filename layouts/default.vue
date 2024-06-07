@@ -33,7 +33,7 @@ import ToggleSidebar from '~/components/ToggleSidebar.vue';
         Dashboard SPG
       </div>
 
-      <div class="max-w-[100vw] px-6 pb-16 xl:pr-2">
+      <div class="grow px-6 pb-16 xl:pr-2">
         <slot />
       </div>
     </div>
