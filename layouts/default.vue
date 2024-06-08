@@ -28,7 +28,7 @@ import ToggleSidebar from '~/components/ToggleSidebar.vue';
     </div>
 
     <div class="drawer-content">
-      <div class="shadow-sm z-30 px-6 py-4 w-full mb-4 flex justify-between items-center">
+      <div class="shadow-lg px-6 py-4 w-full mb-6 flex justify-between items-center">
         <ToggleSidebar />
         Dashboard SPG
       </div>
