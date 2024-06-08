@@ -1,23 +1,27 @@
 <script lang="ts" setup>
 import SelectCustomer from '~/components/SelectCustomer.vue';
 import SelectPayment from '~/components/SelectPayment.vue';
+import Cart from '~/components/Cart.vue';
 import { ref, reactive } from 'vue';
-import type { Product } from '~/@types/product';
-import {
-  Minus,
-  Plus
-} from 'lucide-vue-next';
+import type { ICart } from '~/@types/cart';
 
-interface Cart extends Product {
-  qty: number;
-  discount: number;
-}
-
-const cart = reactive<Cart[]>([]);
+const cart: ICart[] = reactive([]);
 const invDiscount = ref(0);
 
-const addProduct = (product: Cart) => {
+const addProduct = (product: ICart) => {
   cart.push(product)
+}
+
+const removeProduct = (index: number) => {
+  cart.splice(index, 1);
+}
+
+const updateQty = (index: number, qty: number) => {
+  cart[index].qty = qty;
+}
+
+const updateDiscount = (index: number, discount: number) => {
+  cart[index].discount = discount;
 }
 </script>
 
@@ -39,28 +43,9 @@ const addProduct = (product: Cart) => {
     <div class="md:w-6/12 w-full">
       <h2 class="mb-4">Keranjang Belanja</h2>
 
-      <div v-for="item in cart" :key="item.id"
-        class="flex flex-col border-b border-base-content rounded px-2 pb-2 bg-primary-content">
-        <h3>{{ item.name }}</h3>
-
-        <div class="flex gap-2">
-          <label class="input input-bordered flex items-center gap-2 input-sm">
-            <input type="text" class="grow w-24" placeholder="Discount" />
-            <span class="badge">%</span>
-          </label>
-
-          <input type="text" placeholder="Quantity" class="input input-bordered input-sm w-24" />
-
-          <div class="flex gap-1">
-            <button aria-label="kurangi" class="btn btn-error btn-square btn-sm">
-              <Minus class="h-4 w-4" />
-            </button>
-
-            <button class="btn btn-square btn-primary btn-sm">
-              <Plus class="h-4 w-4" />
-            </button>
-          </div>
-        </div>
+      <div class="flex flex-col gap-2">
+        <Cart :carts="cart" :onRemoveProduct="removeProduct" :onUpdateQty="updateQty"
+          :onUpdateDiscount="updateDiscount" />
       </div>
     </div>
   </div>
