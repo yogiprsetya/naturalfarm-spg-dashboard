@@ -17,11 +17,11 @@ import ToggleSidebar from '~/components/ToggleSidebar.vue';
 
         <ul class="menu px-4 py-0">
           <li>
-            <NuxtLink e to="/" class="group">Dashboard</NuxtLink>
+            <a href="/" class="group">Dashboard</a>
           </li>
 
           <li>
-            <NuxtLink to="/transaction" class="group">Transaction</NuxtLink>
+            <a href="/transaction" class="group">Transaction</a>
           </li>
         </ul>
       </aside>

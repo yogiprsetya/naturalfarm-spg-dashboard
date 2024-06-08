@@ -46,7 +46,6 @@
 
 <script setup lang="ts">
 import { Minus, Plus, Trash } from 'lucide-vue-next';
-import { computed, defineProps } from 'vue';
 import type { ICart } from '~/@types/cart';
 import { formatPrice } from '~/utils/idr';
 import { calcDiscount } from '~/utils/discount';

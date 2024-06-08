@@ -27,7 +27,7 @@ const updateDiscount = (index: number, discount: number) => {
 
 <template>
   <div class="w-full">
-    <ProductCatalog :onSelect="addProduct" />
+    <ProductCatalog :onSelect="addProduct" :selectedList="cart.map(v => v.id)" />
   </div>
 
   <div class="flex min-w-full max-md:flex-col-reverse gap-6 prose prose-sm">
