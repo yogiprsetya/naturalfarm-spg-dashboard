@@ -16,13 +16,13 @@
     <div class="flex justify-between">
       <div class="flex gap-2">
         <label class="input input-bordered flex items-center gap-2 input-sm">
-          <input type="text" class="grow w-24" @keydown="numericOnly" @input="e => onChangeDiscount(index, e)"
+          <input type="text" class="grow md:w-24 w-16" @keydown="numericOnly" @input="e => onChangeDiscount(index, e)"
             :value="item.discount" pattern="[0-9]" maxlength="2" title='Max 99%' placeholder="Discount" />
           <span class="badge">%</span>
         </label>
 
         <input type="text" placeholder="Quantity" :value="item.qty" readonly
-          class="input input-sm w-24 cursor-not-allowed" />
+          class="input input-sm md:w-24 w-14 cursor-not-allowed" />
 
         <div class="flex gap-1">
           <button aria-label="kurangi qty" :disabled="item.qty <= 1" @click="props.onUpdateQty(index, item.qty - 1)"
@@ -41,6 +41,11 @@
         <Trash class="h-4 w-4" />
       </button>
     </div>
+  </div>
+
+  <div v-if="!props.carts.length"
+    class="rounded-lg border border-dashed border-base-content text-center bg-neutral opacity-50">
+    <p>Keranjang kosong, tambahkan produk!</p>
   </div>
 </template>
 

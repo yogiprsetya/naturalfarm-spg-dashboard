@@ -5,7 +5,8 @@
     <Search class="w-5 h-4" />
   </label>
 
-  <div class="grid grid-cols-3 gap-2 max-h-48 overflow-y-auto border-b border-success-content shadow pb-4">
+  <div
+    class="grid md:grid-cols-3 grid-cols-2 gap-2 max-h-48 overflow-y-auto border-b border-success-content shadow pb-4">
     <div v-for="item in filteredProduct" role="button" @click="selectProduct(item)" :key="item.sku"
       :class="`${selectedList.includes(item.sku) ? 'opacity-50 cursor-default' : 'shadow'} not-prose p-4 rounded-lg select-none border bg-base-200 border-neutral`">
       <h2 class="text-lg font-bold">{{ item.brand }}</h2>

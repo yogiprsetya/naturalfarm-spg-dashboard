@@ -2,7 +2,7 @@
   <div class="flex p-4 flex-col gap-4 border border-base-content rounded-lg">
     <h2 class="not-prose text-lg font-bold">Ringkasan Pesanan</h2>
 
-    <div class="grid grid-cols-2 gap-x-6">
+    <div class="grid md:grid-cols-2 gap-x-6">
       <div class="flex justify-between">
         <span>Total Harga</span>
         <span>{{ formatPrice(totalPrice) }}</span>
@@ -13,7 +13,7 @@
         <span class="text-error">{{ formatPrice(totalDiscount) }}</span>
       </div>
 
-      <div class="flex justify-between font-bold border-b">
+      <div class="flex justify-between font-bold border-b max-md:order-1">
         <span>Total Bayar</span>
         <span>{{ formatPrice(totalBill) }}</span>
       </div>

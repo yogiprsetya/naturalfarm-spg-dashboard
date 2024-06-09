@@ -3,7 +3,7 @@
     <ProductCatalog :onSelect="addProduct" :selectedList="cart.map(v => v.sku)" />
   </div>
 
-  <div class="flex min-w-full max-md:flex-col-reverse gap-6 prose prose-sm">
+  <div class="flex min-w-full max-md:flex-col-reverse md:gap-6 prose prose-sm">
     <div class="md:w-6/12 w-full">
       <h2 class="mb-2">Input Pesanan</h2>
 
@@ -20,7 +20,8 @@
     </div>
 
     <div class="md:w-6/12 w-full">
-      <h2 class="mb-4">Keranjang Belanja</h2>
+      <h2 class="mb-4">Keranjang Belanja <div v-if="cart.length" class="badge badge-neutral">{{ cart.length }}</div>
+      </h2>
 
       <div class="flex flex-col gap-2">
         <Cart :carts="cart" :onRemoveProduct="removeProduct" :onUpdateQty="updateQty"
