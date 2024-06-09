@@ -1,10 +1,10 @@
 <template>
   <div v-for="(item, index) in props.carts" :key="item.id"
     class="flex flex-col border-b border-base-content rounded px-2 pb-2 bg-primary-content">
-    <div class="flex justify-between items-center py-2">
+    <div class="flex justify-between md:items-center py-2 max-md:flex-col">
       <h3 class="not-prose font-bold">{{ item.name }}</h3>
 
-      <div class="flex gap-2">
+      <div class="flex gap-1 md:gap-2 [&_small]:text-nowrap">
         <small v-bind:class="{ 'text-accent': item.discount === 0, 'line-through': item.discount > 0 }">{{
           formatPrice(item.price * item.qty) }}</small>
 
@@ -16,13 +16,13 @@
     <div class="flex justify-between">
       <div class="flex gap-2">
         <label class="input input-bordered flex items-center gap-2 input-sm">
-          <input type="text" class="grow md:w-24 w-16" @keydown="numericOnly" @input="e => onChangeDiscount(index, e)"
+          <input type="text" class="grow md:w-20 w-12" @keydown="numericOnly" @input="e => onChangeDiscount(index, e)"
             :value="item.discount" pattern="[0-9]" maxlength="2" title='Max 99%' placeholder="Discount" />
           <span class="badge">%</span>
         </label>
 
         <input type="text" placeholder="Quantity" :value="item.qty" readonly
-          class="input input-sm md:w-24 w-14 cursor-not-allowed" />
+          class="input input-sm md:w-20 w-12 cursor-not-allowed" />
 
         <div class="flex gap-1">
           <button aria-label="kurangi qty" :disabled="item.qty <= 1" @click="props.onUpdateQty(index, item.qty - 1)"

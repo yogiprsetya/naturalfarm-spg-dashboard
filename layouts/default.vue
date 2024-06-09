@@ -9,7 +9,7 @@ import ToggleSidebar from '~/components/ToggleSidebar.vue';
     <div class="drawer-side z-30">
       <label for="main-drawer" class="drawer-overlay"></label>
 
-      <aside class="bg-base-100 min-h-screen w-80">
+      <aside class="bg-base-100 min-h-screen w-72 2xl:w-80">
         <div class="px-4 py-3 mb-6">
           <img src="https://naturalfarm.sgp1.digitaloceanspaces.com/images/logo_naturalfarm.svg" width="180px"
             alt="Logo Natural Farm" title="natural farm logo" />
